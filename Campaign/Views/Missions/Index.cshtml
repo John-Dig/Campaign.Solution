@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Campaign.Models;
+
+<h1>Missions</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No missions have been added yet!</h3>
+} 
+else
+{
+  <ul>
+    @foreach (Mission mission in Model)
+    {
+      <li>@Html.ActionLink($"{mission.Description}", "Details", new { id = mission.MissionId }) | @mission.Operation.Name</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add new mission", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

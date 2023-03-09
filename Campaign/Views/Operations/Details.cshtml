@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Campaign.Models.Operation
+@using Campaign.Models
+
+<h2>Operation Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+
+@if (@Model.Missions.Count == 0)
+{
+  <h3>No missions have been added to this operation yet!</h3>
+} 
+else
+{
+  <h3>Missions:</h3>
+  <ul>
+    @foreach (Mission mission in Model.Missions)
+    {
+      <li>@Html.ActionLink($"{mission.Description}", "Details", "Missions", new { id = mission.MissionId })</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit Operation", "Edit", new { id = Model.OperationId })</p>
+<p>@Html.ActionLink("Delete Operation", "Delete", new { id = Model.OperationId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>

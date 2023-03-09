@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Campaign.Models.Mission
+
+<h2>Mission Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h3>
+<h3>@Html.DisplayNameFor(model => model.Operation): @Html.DisplayFor(model => model.Operation.Name)<h3>
+
+<p>@Html.ActionLink("Edit Mission", "Edit", new { id = Model.MissionId })</p>
+<p>@Html.ActionLink("Delete Mission", "Delete", new { id = Model.MissionId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>

@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Campaign.Models.Mission
+
+<h4>Add a new mission</h4>
+
+<p><strong>NOTE:</strong> You need to have at least one operation before you can add an mission!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Operations") to create a operation.</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+
+  @Html.LabelFor(model => model.Operation)
+  @Html.DropDownList("OperationId")
+
+  <input type="submit" value="Add new mission" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all missions", "Index")</p>
