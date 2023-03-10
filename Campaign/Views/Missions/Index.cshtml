@@ -15,7 +15,7 @@ else
   <ul>
     @foreach (Mission mission in Model)
     {
-      <li>@Html.ActionLink($"{mission.Description}", "Details", new { id = mission.MissionId }) | @mission.Operation.Name</li>
+      <li>@Html.ActionLink($"{mission.Name}", "Details", new { id = mission.MissionId }) | @mission.Operation.Name</li>
     }
   </ul>
 }
